@@ -26,7 +26,7 @@
 }
 
 /* ==========================================
-   2. حماية المحتوى، منع النسخ والهوامش الجانبية
+   2. منع النسخ والتحديد وإلغاء التمرير الجانبي
    ========================================== */
 html, body {
     max-width: 100% !important;
@@ -34,7 +34,7 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* منع تحديد أو نسخ النصوص والصور */
+    /* منع تحديد أو نسخ النصوص والصور بالكامل */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -63,7 +63,7 @@ p {
 }
 
 /* ==========================================
-   3. الهيدر والقائمة المنزلقة المحاطة
+   3. الهيدر والقائمة المنزلقة المحاطة (Floating Menu)
    ========================================== */
 header {
     background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
@@ -83,8 +83,10 @@ h1 {
     font-weight: 800;
     color: #FFFFFF;
     margin: 0;
+    letter-spacing: 0.5px;
 }
 
+/* أيقونة القائمة */
 .hamburger-menu {
     cursor: pointer;
     z-index: 1001;
@@ -104,16 +106,23 @@ h1 {
     transition: var(--transition);
 }
 
-.hamburger-menu.active span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
-.hamburger-menu.active span:nth-child(2) { opacity: 0; }
-.hamburger-menu.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
 
+/* القائمة الجانبية: طافية ومحاطة بالعناصر فقط */
 .menu {
     position: fixed;
     top: 65px;
     left: -300px;
     width: 260px;
-    height: fit-content;
+    height: fit-content; /* المحاطة بالعناصر دون تمتد لأخر الصفحة */
     max-height: 80vh;
     background: rgba(9, 36, 19, 0.95);
     backdrop-filter: blur(10px);
@@ -125,10 +134,24 @@ h1 {
     z-index: 999;
 }
 
-.menu.active { left: 0; }
+.menu.active {
+    left: 0;
+}
 
-.menu ul { list-style: none; padding: 0; margin: 0; }
-.menu ul li { margin-bottom: 8px; }
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    margin-bottom: 8px;
+}
+
+.menu ul li:last-child {
+    margin-bottom: 0;
+}
+
 .menu ul li a {
     color: #FFFFFF;
     text-decoration: none;
@@ -147,40 +170,18 @@ h1 {
 }
 
 /* ==========================================
-   4. ضبط مسافات وحواف المحتوى الرئيسي (Main Container)
+   4. معرض الصور والرئيسية
    ========================================== */
 main {
-    width: 100%;
-    max-width: 1200px; /* تحديد أقصى عرض للشاشة */
-    margin: 0 auto;    /* يتوسط الصفحة تلقائياً */
-    padding: 25px 5%;  /* مسافة أمان احترافية 5% من اليمين واليسار */
-    box-sizing: border-box;
+    padding: 20px 5%;
 }
 
-/* ضبط كروت المعلومات (من نحن / رؤيتنا / قيمنا) لتكون مبتعدة عن حواف الشاشة */
-.info-wrapper, .card-info, section {
-    background-color: var(--card-bg);
-    padding: 30px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-soft);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-    margin-bottom: 25px;
-}
-
-.card-info:hover, section:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-}
-
-/* ==========================================
-   5. معرض الصور وشبكة المنتجات
-   ========================================== */
 .image-slider {
     position: relative;
     width: 100%;
+    max-width: 1100px;
     height: 380px;
-    margin: 10px auto 35px;
+    margin: 10px auto 30px;
     overflow: hidden;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-soft);
@@ -193,28 +194,37 @@ main {
     object-fit: cover;
     object-position: center;
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
 }
 
-.slider-img.active { opacity: 1; }
+.slider-img.active {
+    opacity: 1;
+}
 
+/* ==========================================
+   5. كروت المنتجات وصفحة التفاصيل (متناسبة مع اللاب والموبايل)
+   ========================================== */
 h2, h3 {
     text-align: center;
     color: var(--primary-color);
     font-weight: 800;
 }
 
-h2 { font-size: 1.6em; margin-bottom: 15px; }
-h3 { font-size: 1.8em; margin: 35px 0 20px; }
+h3 {
+    font-size: 1.8em;
+    margin: 35px 0 20px;
+}
 
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px;
-    width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 10px;
 }
 
 .product, .product-details-card {
@@ -233,6 +243,7 @@ h3 { font-size: 1.8em; margin: 35px 0 20px; }
     border-color: var(--accent-green);
 }
 
+/* ضبط صور كروت المنتجات الموحدة */
 .product img {
     width: 100% !important;
     height: 220px !important;
@@ -242,11 +253,12 @@ h3 { font-size: 1.8em; margin: 35px 0 20px; }
     display: block;
 }
 
+/* ضبط صور صفحات تفاصيل المنتجات المخصصة (ملائمة للاب والموبايل بنفس الوقت) */
 .product-details img,
 .product-detail-image {
     width: 100% !important;
-    max-width: 550px !important;
-    max-height: 400px !important;
+    max-width: 550px !important;    /* ممتاز وعريض للاب */
+    max-height: 400px !important;   /* يمنع تضخم الصورة رأسيّاً */
     height: auto !important;
     object-fit: contain !important;
     border-radius: var(--radius-md);
@@ -256,7 +268,7 @@ h3 { font-size: 1.8em; margin: 35px 0 20px; }
 }
 
 /* ==========================================
-   6. الأزرار
+   6. الأزرار (Buttons)
    ========================================== */
 .details-button, .details-button2, .back-button {
     display: inline-block;
@@ -274,7 +286,10 @@ h3 { font-size: 1.8em; margin: 35px 0 20px; }
     text-align: center;
 }
 
-.details-button2, .back-button { margin: 25px auto; display: table; }
+.details-button2, .back-button {
+    margin: 25px auto;
+    display: table;
+}
 
 .details-button:hover, .details-button2:hover, .back-button:hover {
     background: linear-gradient(135deg, var(--accent-green), var(--primary-color));
@@ -284,7 +299,7 @@ h3 { font-size: 1.8em; margin: 35px 0 20px; }
 }
 
 /* ==========================================
-   7. الفوتر وساعة العقارب العصرية
+   7. الفوتر، الأيقونات وساعة العقارب العصرية
    ========================================== */
 footer {
     background: linear-gradient(135deg, var(--primary-dark), #05140A);
@@ -294,8 +309,11 @@ footer {
     margin-top: 50px;
 }
 
-footer p { color: #D1D5DB; }
+footer p {
+    color: #D1D5DB;
+}
 
+/* الأيقونات الملونة الاحترافية */
 .social-links {
     display: flex;
     justify-content: center;
@@ -318,7 +336,10 @@ footer p { color: #D1D5DB; }
     transition: var(--transition);
 }
 
-.social-links a i { font-size: 1.7rem !important; }
+.social-links a i {
+    font-size: 1.7rem !important;
+}
+
 .social-links a .fa-facebook { color: var(--facebook-color) !important; }
 .social-links a .fa-whatsapp { color: var(--whatsapp-color) !important; }
 .social-links a .fa-envelope { color: var(--email-color) !important; }
@@ -329,50 +350,92 @@ footer p { color: #D1D5DB; }
     box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
 }
 
-/* ساعة عقارب حديدية أنيقة */
+/* تصميم ساعة عقارب حديثة وعصرية (Modern Analog Clock) */
 .analog-clock {
-    width: 120px;
-    height: 120px;
-    border: 3px solid var(--accent-green);
+    width: 130px;
+    height: 130px;
+    border: 4px solid var(--accent-green);
     border-radius: 50%;
     margin: 20px auto;
     position: relative;
     background: radial-gradient(circle, #0F381E 0%, #041208 100%);
-    box-shadow: 0 0 15px rgba(46, 204, 113, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.3), inset 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
 .analog-clock .center-dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     background-color: var(--accent-gold);
     border-radius: 50%;
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
 }
 
 .analog-clock .hand {
     position: absolute;
-    bottom: 50%; left: 50%;
+    bottom: 50%;
+    left: 50%;
     transform-origin: bottom center;
     border-radius: 4px;
     z-index: 5;
 }
 
-.analog-clock .hour-hand { width: 4px; height: 30px; background-color: #FFFFFF; }
-.analog-clock .minute-hand { width: 3px; height: 42px; background-color: var(--accent-green); }
-.analog-clock .second-hand { width: 2px; height: 48px; background-color: var(--accent-gold); }
+.analog-clock .hour-hand {
+    width: 4px;
+    height: 32px;
+    background-color: #FFFFFF;
+}
+
+.analog-clock .minute-hand {
+    width: 3px;
+    height: 45px;
+    background-color: var(--accent-green);
+}
+
+.analog-clock .second-hand {
+    width: 2px;
+    height: 52px;
+    background-color: var(--accent-gold);
+}
 
 /* ==========================================
-   8. التجاوب مع الموبايل
+   8. التجاوب الفائق مع الموبايل (Responsive Tuning)
    ========================================== */
 @media (max-width: 768px) {
-    header { padding: 8px 4%; }
-    h1 { font-size: 1.2em; }
-    main { padding: 15px 4%; }
-    .image-slider { height: 200px; }
-    .products { grid-template-columns: 1fr; gap: 15px; }
-    .product-details img, .product-detail-image { max-height: 250px !important; }
-    .menu { top: 55px; width: 230px; }
+    /* تصغير سمك الهيدر على الموبايل */
+    header {
+        padding: 8px 4%;
+    }
+
+    h1 {
+        font-size: 1.25em;
+    }
+
+    main {
+        padding: 15px 3%;
+    }
+
+    .image-slider {
+        height: 200px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* أبعاد الصورة في الموبايل */
+    .product-details img,
+    .product-detail-image {
+        max-height: 250px !important;
+        margin: 10px auto !important;
+    }
+
+    .menu {
+        top: 55px;
+        width: 230px;
+    }
 }
