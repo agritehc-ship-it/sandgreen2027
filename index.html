@@ -2,141 +2,92 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>شركة فيرا للاسمدة والمخصبات | Vera Fertilizers</title>
-    
-    <!-- استيراد الخطوط والأيقونات -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERA</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- أيقونات الخطوط الفاخرة -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- الهيدر وشريط التنقل -->
-    <header class="main-header"> 
-        <div class="logo-container">
-            <h1>شركة <span>Vera</span></h1>
-        </div>
 
-        <!-- قائمة الهامبرجر للموبايل -->
-        <div class="hamburger-menu" aria-label="Toggle Menu">
+    <!-- الهيدر -->
+    <header>
+        <h1>VERA</h1>
+        <div class="hamburger-menu" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
         </div>
-
-        <nav class="menu">
-            <ul>
-                <li><a href="index detailes ferti.html">مغذيات</a></li>
-                <li><a href="index detailes salinity.html">معالجات الملوحة والإجهاد</a></li>
-                <li><a href="index detailes fungi.html">مبيدات فطرية</a></li>
-                <li><a href="index detailes grow stimulator.html">محفزات نمو</a></li>
-                <li><a href="index detailes row.html">خامات</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- المعرض / السلايدر الرئيسي -->
+    <!-- القائمة الجانبية الطافية -->
+    <nav class="menu" id="sideMenu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> من نحن</a></li>
+            <li><a href="#products"><i class="fas fa-leaf"></i> منتجاتنا</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+        </ul>
+    </nav>
+
+    <!-- المحتوى الرئيسي للموقع مائل ومتوسط الشاشة -->
     <main>
-        <section class="image-slider">
-            <div class="slider-wrapper">
-                <img id="slider-image" src="logo.webp" alt="شركة فيرا للأسمدة والمخصبات" class="slider-img active">
+        <!-- معرض الصور السلايدر -->
+        <div class="image-slider">
+            <img src="images/slide1.jpg" alt="VERA 1" class="slider-img active">
+            <img src="images/slide2.jpg" alt="VERA 2" class="slider-img">
+            <img src="images/slide3.jpg" alt="VERA 3" class="slider-img">
+        </div>
+
+        <!-- كروت المعلومات (من نحن / رؤيتنا / قيمنا) -->
+        <section id="about" class="card-info">
+            <h2><i class="fas fa-leaf"></i> من نحن</h2>
+            <p>شركة VERA هي شركة رائدة ومتخصصة في تصنيع وإنتاج أحدث الحلول والإنشاءات السمادية والمغذيات الزراعية المتطورة لرفع كفاءة التربة وجودة المحاصيل.</p>
+        </section>
+
+        <section class="card-info">
+            <h2><i class="fas fa-eye"></i> رؤيتنا</h2>
+            <p>تقديم تقنيات تغذية نباتية ذكية ومستدامة تعزز من إنتاجية الزراعة وتدعم الأمن الغذائي وفق معايير الجودة العالمية.</p>
+        </section>
+
+        <!-- قسم المنتجات -->
+        <section id="products">
+            <h3>منتجاتنا المتميزة</h3>
+            <div class="products">
+                <div class="product">
+                    <img src="images/product1.jpg" alt="سماد 1">
+                    <h4>مركب مغذي ممتاذ</h4>
+                    <p>وصف مختصر للمنتج وكفاءته للتغذية.</p>
+                    <a href="fertilizer1.html" class="details-button">التفاصيل</a>
+                </div>
+                <!-- يمكنك تكرار المنتجات هنا بنفس الهيكل -->
             </div>
         </section>
     </main>
 
-    <!-- قسم عن الشركة والرؤية والقيم -->
-    <div class="container info-wrapper">
-        <section class="card-info">
-            <div class="icon-box"><i class="fas fa-building-ngo"></i></div>
-            <h2>من نحــن</h2>
-            <p>نحن شركة <strong>فيرا (Vera)</strong> للأسمدة والمخصبات الزراعية، نعمل في مجال تصنيع الأسمدة الزراعية عالية الجودة لدعم الإنتاج الزراعي. هدفنا هو تعزيز إنتاجية المحاصيل وتحقيق الأمن الغذائي بأحدث التقنيات.</p>
-        </section>
+    <!-- الفوتر -->
+    <footer id="contact">
+        <p>&copy; 2026 VERA - جميع الحقوق محفوظة</p>
 
-        <section class="card-info">
-            <div class="icon-box"><i class="fas fa-eye"></i></div>
-            <h2>رؤيتــنا</h2>
-            <p>أن نصبح في مصنع <strong>فيرا (Vera)</strong> من رواد تصنيع الأسمدة الذكية والمستدامة، لمستقبل أفضل لأراضينا وغذائنا.</p>
-        </section>
+        <!-- روابط التواصل -->
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+            <a href="mailto:info@vera.com"><i class="fas fa-envelope"></i></a>
+        </div>
 
-        <section class="card-info">
-            <div class="icon-box"><i class="fas fa-leaf"></i></div>
-            <h2>قيمــنا</h2>
-            <ul class="values-list">
-                <li><strong>الجودة:</strong> نقدم منتجات عالية الجودة تلبي احتياجات كافة أنواع الزراعات.</li>
-                <li><strong>الابتكار:</strong> نبحث دائمًا عن حلول وتقنيات جديدة لتحسين منتجاتنا ورفع كفاءتها.</li>
-                <li><strong>الإرشاد الزراعي:</strong> نقدّم الدعم والحملات الإرشادية للمزارعين عبر منصات التواصل الاجتماعي.</li>
-            </ul>
-        </section>
-    </div>
-
-    <!-- الفوتر / أسفل الصفحة -->
-    <footer class="main-footer">
-        <div class="footer-content">
-            <p class="footer-welcome">يشرفنا التعاون معكم (فريق فيرا - Vera)</p>
-            <p class="footer-sub">لطلب منتجاتنا أو للحصول على استشارات زراعية، تواصل معنا عبر الأيقونات التالية 👇</p>
-            
-            <div class="social-links">
-                <a href="https://www.facebook.com/Agritehc/" target="_blank" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://wa.me/201000802240" target="_blank" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="mailto:agritehc@gmail.com" target="_blank" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://m.me/Agritehc" target="_blank" aria-label="Messenger">
-                    <i class="fab fa-facebook-messenger"></i>
-                </a>
-            </div>
-
-            <!-- الساعة الرقمية -->
-            <div id="clock-container">
-                <div id="clock">00:00</div>
-            </div>
-
-            <p class="thank-you">تشرفنا بزيارتك لموقعنا 😍🌱</p>
-            <p class="copyright">&copy; 2026 Vera Company. All rights reserved.</p>
+        <!-- ساعة العقارب العصرية -->
+        <div class="analog-clock">
+            <div class="center-dot"></div>
+            <div class="hand hour-hand"></div>
+            <div class="hand minute-hand"></div>
+            <div class="hand second-hand"></div>
         </div>
     </footer>
 
-    <!-- السكريبتات -->
-    <script>
-        // تحديث الساعة الرقمية
-        function updateClock() {
-            const clock = document.getElementById('clock');
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            clock.textContent = `${hours}:${minutes}`;
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        // التحكم في قائمة الهامبرجر
-        const hamburger = document.querySelector('.hamburger-menu');
-        const menu = document.querySelector('.menu');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active'); 
-            menu.classList.toggle('active');
-        });
-
-        // معرض الصور المتغير (Slider)
-        const images = ["AI Image.webp", "logo.webp", "tree.webp"];
-        let currentIndex = 0;
-        const sliderImage = document.getElementById("slider-image");
-
-        function changeImage() {
-            sliderImage.classList.remove("active");
-            setTimeout(() => {
-                currentIndex = (currentIndex + 1) % images.length;
-                sliderImage.src = images[currentIndex];
-                sliderImage.classList.add("active");
-            }, 400);
-        }
-        setInterval(changeImage, 3000);
-    </script>
+    <!-- ربط ملف الجافاسكريبت الموحد -->
+    <script src="script.js"></script>
 </body>
 </html>
