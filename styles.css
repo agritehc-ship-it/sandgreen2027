@@ -1,27 +1,40 @@
 /* ==========================================
-   1. الإعدادات العامة والمهيئة (Variables & Core)
+   1. الإعدادات العامة للرؤية وتجاوب الشاشات
    ========================================== */
 :root {
-    --primary-color: #1E5631;       /* الأخضر الزمردي الرئيسي */
-    --primary-dark: #11381E;        /* أخضر داكن للخلفيات الهامة */
-    --accent-gold: #FFD700;         /* الذهبي الممتاز للتأثيرات */
-    --accent-hover: #e6c200;
-    --bg-light: #F4F7F4;            /* خلفية فاتحة ومريحة للعين */
-    --card-bg: #FFFFFF;             /* خلفية البطاقات */
+    --primary-color: #1E5631;       /* الأخضر الزراعي الرئيسي */
+    --primary-dark: #11381E;        /* الأخضر الداكن للفوتر والقائمة */
+    --accent-gold: #FFD700;         /* لون التميز الذهبي */
+    --bg-light: #F4F7F4;            /* خلفية فاتحة ومريحة */
+    --card-bg: #FFFFFF;             /* خلفية الكروت */
     --text-dark: #1F2937;           /* لون النصوص الرئيسي */
     --text-muted: #4B5563;          /* لون النصوص الفرعية */
+    
+    /* الألوان الرسمية لأيقونات التواصل */
+    --facebook-color: #1877F2;
+    --whatsapp-color: #25D366;
+    --email-color: #EA4335;
+    --messenger-color: #0084FF;
+    
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
-    --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-    --shadow-hover: 0 20px 30px -10px rgba(1, 114, 39, 0.15);
+    --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 15px 30px rgba(1, 114, 39, 0.15);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* {
-    box-sizing: border-box;
+/* منع خروج أي عنصر عن حدود شاشة الموبايل نهائياً */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 body {
@@ -30,7 +43,6 @@ body {
     color: var(--text-dark);
     direction: rtl;
     line-height: 1.7;
-    overflow-x: hidden;
 }
 
 p {
@@ -38,10 +50,12 @@ p {
     font-weight: 500;
     color: var(--text-muted);
     padding: 5px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* ==========================================
-   2. الهيدر والقائمة النافذة (Header & Nav)
+   2. الهيدر والقائمة الجانبية (Header & Navigation)
    ========================================== */
 header {
     background-color: var(--primary-color);
@@ -53,7 +67,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
 h1 {
@@ -61,12 +75,9 @@ h1 {
     font-weight: 800;
     color: #FFFFFF;
     margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
 }
 
-/* زر الهامبرجر */
+/* زر القائمة للهواتف */
 .hamburger-menu {
     cursor: pointer;
     z-index: 1001;
@@ -74,7 +85,7 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
-    height: 21px;
+    height: 22px;
 }
 
 .hamburger-menu span {
@@ -86,15 +97,14 @@ h1 {
     transition: var(--transition);
 }
 
-/* تحويل زرار المنيو عند الفتح */
 .hamburger-menu.active span:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(9.5px) rotate(45deg);
 }
 .hamburger-menu.active span:nth-child(2) {
     opacity: 0;
 }
 .hamburger-menu.active span:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-9.5px) rotate(-45deg);
 }
 
 /* القائمة الجانبية المنزلقة */
@@ -107,7 +117,7 @@ h1 {
     background-color: var(--primary-dark);
     padding: 80px 25px 30px;
     transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
     z-index: 999;
 }
 
@@ -118,6 +128,7 @@ h1 {
 .menu ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .menu ul li {
@@ -137,13 +148,13 @@ h1 {
 }
 
 .menu ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.12);
     color: var(--accent-gold);
     transform: translateX(-5px);
 }
 
 /* ==========================================
-   3. المعرض الرئيسي (Image Slider)
+   3. معرض الصور السلايدر (Image Slider)
    ========================================== */
 main {
     padding: 20px 5%;
@@ -152,7 +163,7 @@ main {
 .image-slider {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     height: 380px;
     margin: 10px auto 30px;
     overflow: hidden;
@@ -170,31 +181,30 @@ main {
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 0.8s ease-in-out, transform 4s ease;
+    transition: opacity 0.8s ease-in-out;
 }
 
 .slider-img.active {
     opacity: 1;
-    transform: scale(1.03);
 }
 
 /* ==========================================
-   4. الأقسام العصرية وخلفيات المعلومات
+   4. بطاقات المعلومات (عنا / رؤيتنا / قيمنا)
    ========================================== */
 .container.info-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
     margin: 30px auto;
 }
 
 .card-info, section {
     background-color: var(--card-bg);
-    padding: 30px;
+    padding: 25px;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-soft);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
     transition: var(--transition);
     margin-bottom: 20px;
 }
@@ -206,12 +216,9 @@ main {
 
 h2 {
     color: var(--primary-color);
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 800;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    margin-bottom: 12px;
     border-bottom: 2px solid #E5E7EB;
     padding-bottom: 8px;
 }
@@ -221,34 +228,33 @@ ul {
 }
 
 ul li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-weight: 600;
-    color: var(--text-dark);
 }
 
 /* ==========================================
-   5. شبكة المنتجات (Products Grid)
+   5. شبكة المنتجات والصور المعتدلة
    ========================================== */
 h3 {
     text-align: center;
     color: var(--primary-color);
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: 800;
-    margin: 40px 0 20px;
+    margin: 35px 0 20px;
 }
 
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 25px;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 10px;
 }
 
 .product {
     background-color: var(--card-bg);
-    border: 1px solid rgba(0,0,0,0.05);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: var(--radius-md);
     padding: 20px;
     text-align: center;
@@ -260,17 +266,20 @@ h3 {
 }
 
 .product:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-hover);
     border-color: var(--primary-color);
 }
 
-.product img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
+/* ضبط حجم وحصار الصور لتناسب المكان تماماً دون تضخم */
+.product img, 
+.product-details img {
+    max-width: 100% !important;
+    height: 200px !important;
+    object-fit: contain !important;
     border-radius: var(--radius-sm);
-    margin-bottom: 15px;
+    margin: 0 auto 15px auto;
+    display: block;
     transition: var(--transition);
 }
 
@@ -279,26 +288,26 @@ h3 {
 }
 
 /* ==========================================
-   6. الأزرار والتفاعلات (Buttons)
+   6. تصميم الأزرار والتطبيقات
    ========================================== */
 .details-button, .details-button2, .back-button {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 10px 22px;
     background-color: var(--primary-color);
     color: #FFFFFF !important;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1em;
+    font-size: 0.95em;
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(1, 114, 39, 0.2);
+    box-shadow: 0 4px 10px rgba(1, 114, 39, 0.2);
     transition: var(--transition);
     text-align: center;
 }
 
 .details-button2, .back-button {
-    margin: 30px auto;
+    margin: 25px auto;
     display: table;
 }
 
@@ -306,87 +315,144 @@ h3 {
     background-color: var(--primary-dark);
     color: var(--accent-gold) !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(1, 114, 39, 0.35);
+    box-shadow: 0 6px 15px rgba(1, 114, 39, 0.3);
 }
 
 /* ==========================================
-   7. الفوتر والساعة الرقمية (Footer & Clock)
+   7. الفوتر، أيقونات التواصل الملونة والساعة
    ========================================== */
 footer {
     background-color: var(--primary-dark);
     color: #FFFFFF;
     text-align: center;
-    padding: 40px 20px 20px;
-    margin-top: 60px;
+    padding: 40px 15px 25px;
+    margin-top: 50px;
 }
 
 footer p {
     color: #E5E7EB;
 }
 
-footer a i {
+/* تنسيق أيقونات التواصل الاجتماعي بألوان حية وحجم بارز */
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: var(--transition);
 }
 
-footer a:hover i {
-    transform: scale(1.25) rotate(5deg);
+.social-links a i {
+    font-size: 1.8rem !important; /* حجم كبير وواضح جداً */
+    transition: var(--transition);
 }
 
-/* الساعة الرقمية المصححة */
+/* الألوان الحقيقية للأيقونات */
+.social-links a .fa-facebook {
+    color: var(--facebook-color) !important;
+}
+
+.social-links a .fa-whatsapp {
+    color: var(--whatsapp-color) !important;
+}
+
+.social-links a .fa-envelope {
+    color: var(--email-color) !important;
+}
+
+.social-links a .fa-facebook-messenger {
+    color: var(--messenger-color) !important;
+}
+
+/* تأثير التكبير والإضاءة عند التمرير على الأيقونة */
+.social-links a:hover {
+    transform: translateY(-5px) scale(1.12);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* تصميم عصري وجديد للساعة الرقمية */
 #clock-container {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin: 25px 0;
 }
 
 #clock {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--accent-gold);
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    padding: 10px 30px;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #00FF66; /* أخضر نيون رقمي جميل */
+    background: #061F10;
+    padding: 8px 30px;
     border-radius: 50px;
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid #00FF66;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
     width: auto !important;
     height: auto !important;
 }
 
 /* ==========================================
-   8. التجاوب مع مختلف الشاشات (Responsive)
+   8. التكيف الشامل مع شاشات الموبايل (Responsive)
    ========================================== */
 @media (max-width: 768px) {
-    main {
-        padding: 10px;
+    main, .container {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
     }
-    
+
     .image-slider {
-        height: 250px;
+        height: 220px;
     }
 
     .products {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: 1fr; /* عرض منتج واحد احترافي في كل سطر للموبايل */
         gap: 15px;
     }
 
-    h1 {
-        font-size: 1.3em;
+    .product {
+        width: 100% !important;
+    }
+
+    .social-links {
+        gap: 15px;
+    }
+
+    .social-links a {
+        width: 48px;
+        height: 48px;
+    }
+
+    .social-links a i {
+        font-size: 1.5rem !important;
+    }
+
+    #clock {
+        font-size: 1.4rem;
+        padding: 6px 20px;
     }
 }
 
 @media (max-width: 480px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
     .image-slider {
-        height: 180px;
-        border-radius: var(--radius-md);
-    }
-
-    .products {
-        grid-template-columns: 1fr;
-    }
-
-    .card-info, section {
-        padding: 20px;
+        height: 170px;
     }
 }
