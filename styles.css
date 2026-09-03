@@ -1,0 +1,481 @@
+body {
+    font-family: 'Cairo', sans-serif; /* استخدام الخط الجديد */
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0px;
+    direction: rtl; /* اتجاه النص من اليمين لليسار */
+    font-size: 1.0em;
+}
+p{
+    font-size: 1.0em;
+    text-align: match-parent;
+    font-weight: 800;
+    padding: 10px;
+    font-family: 'Cairo', sans-serif; /* استخدام الخط الجديد */
+
+}
+
+header {
+    font-family: 'Cairo', sans-serif; /* استخدام الخط الجديد */
+    background-color: #1E5631; /* أخضر داكن مشبع */
+    color: #FFFFFF; /* النص باللون الأبيض */
+    text-align: right;
+    font-size: 1em;
+    padding: 10px ;
+    padding-right: 10px;
+    position: relative;
+    
+}
+
+/* تصميم أيقونة الهامبرجر */
+.hamburger-menu {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    margin-top: 20px; /* اضف مسافة 20px من أعلى */
+}
+
+
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* تصميم القائمة */
+.menu {
+    position: absolute;
+    top: 5;
+    left: 100%;
+    width: 200px;
+    background-color: #1E5631;
+    padding: 50px 20px;
+    transition: left 0s ease-in-out;
+    box-shadow: 0 4px 8px rgb(228, 228, 228); /* تأثير ظل */
+    border-radius: 30px; /* زوايا دائرية للصورة */
+}
+
+.menu ul {
+    list-style-type: none; /* إزالة العلامات من القائمة */
+    padding: 0; /* إزالة الحواف */
+    margin: 0; /* إزالة الهامش */
+}
+
+.menu li {
+    border-bottom: 1px solid #dad603; /* إضافة خط فاصل بين العناصر */
+}
+
+.menu ul li {
+    margin-bottom: 5px;
+}
+
+.menu ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.4em;  
+}
+
+.menu a:hover {
+    background-color: #ffd1049c; /* تغيير الخلفية عند التحويم */
+}
+
+/* القائمة تظهر عند التفاعل */
+.menu.active {
+    left: 0;
+}
+
+h1 {
+    margin: 0 ; /* تعديل المسافات */
+    padding-right: 4px; /* إضافة مسافة بين العنوان والجانب الأيمن */ 
+    font-size: 1.5em; 
+    text-align: right;
+}
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 400px; /* يمكنك تعديل الارتفاع حسب احتياجك */
+    overflow: hidden; /* لضمان عدم خروج الصورة عن نطاقها */
+    border-radius: 30px; /* زوايا دائرية للصورة */
+    z-index: -1; /* الطبقة السفلية للصورة */
+
+}
+
+.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* لضمان ملء الصورة بالكامل بدون تمدد غير متناسق */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.9s ease-in-out; /* تأثير التلاشي عند تغيير الصور */
+    object-fit: contain; /* جعل الصورة تظهر كاملة داخل الحيز */
+    object-position: center;
+    
+}
+
+
+.slider-img.active {
+    opacity: 1; /* ظهور الصورة */
+}
+
+.slider-img:not(.active) {
+    opacity: 0; /* إخفاء الصورة */
+}
+
+
+h3 {
+    margin: 10px 0 10px; /* تعديل المسافات */
+    padding-right: 20px; /* إضافة مسافة بين العنوان والجانب الأيمن */
+    padding: 10px 0;
+    position: relative;
+    font-size: 2.0em;
+    text-align: center;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* للسماح بتوزيع المنتجات بشكل أفضل */
+    padding: 20px;
+}
+
+.product {
+    background-color: rgb(241, 177, 0);
+    border: 3px solid #017227;
+    border-radius: 50px; /* زوايا دائرية */
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #000000; /* النص باللون الأبيض */
+    font-weight: 1000;
+    width: 250px; /* عرض أكبر للمنتجات */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* تأثير ظل */
+    transition: transform 0.2s; /* تأثير التحرك عند التمرير */
+    flex: 1 1 45%; /* عرض المنتج بنسبة 45% */
+    max-width: 300px; /* تحديد أقصى عرض للمنتج */
+}
+.products {
+    display: flex; 
+    flex-wrap: wrap; /* السماح بلف العناصر */
+    justify-content: center; /* توسيط العناصر */
+    padding: 0 10px; /* إضافة مساحة جانبية */
+}
+
+.product:hover {
+    transform: scale(1.05); /* تكبير المنتج عند التمرير عليه */
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    top: 20px; /* تعديل موضع الشعار */
+    border-radius: 30px; /* زوايا دائرية للصورة */
+    box-shadow: 0 4px 8px rgb(51, 51, 51); /* تأثير ظل */
+}
+
+.product img > img {
+    width: 100%;
+    height: 100%;
+    filter: 250ms ease-in-out;
+    filter: grayscale(1);
+    transition: scale 750ms ease-out,
+    }
+.product:hover > img {
+    scale: 1.15;
+    filter: grayscale(0);
+}
+
+.details-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #086825;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* تأثيرات متعددة */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* تأثير ظل خفيف */
+    position: relative;
+    overflow: hidden; /* منع تجاوزات العناصر الخارجية */
+}
+
+.details-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.details-button:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+}
+
+.details-button:hover {
+    background-color: #034918;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* تعميق الظل عند التمرير */
+    color: gold; /* تغيير لون النص */
+    transform: translateY(-2px); /* رفع بسيط بدون تغيير كبير */
+}
+
+/*  زرار التفاصيل 2 هو للعوده من المنتج نفسه الي التصنيف مثلا معالجات الملوحة وكده */
+
+.details-button2 {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    margin: 20px auto; /* وضع الزر في المنتصف */
+    background-color: #086825;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* تأثيرات متعددة */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* تأثير ظل خفيف */
+    position: relative;
+    font-weight: 1000;
+    font-size: 1.2em;
+    text-align: center; /* توسيط النص */
+    font-family: 'Cairo', sans-serif; /* استخدام الخط الجديد */
+    overflow: hidden; /* منع تجاوزات العناصر الخارجية */
+}
+
+.details-button2::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.details-button2:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+}
+
+.details-button2:hover {
+    background-color: #034918;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* تعميق الظل عند التمرير */
+    color: gold; /* تغيير لون النص */
+    transform: translateY(-2px); /* رفع بسيط بدون تغيير كبير */
+}
+
+
+.product-details {
+    text-align: center; /* توسيط النص */
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.product-details img {
+    display: block; /* عرض الصورة ككتلة */
+    margin: 40px auto 0; /* تعديل المسافة من الأعلى */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.795); /* تأثير ظل */
+    border-radius: 40px;
+    width: 80%;
+    height: auto;
+}
+
+  /* بداية زرار العوده */  
+  .back-button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    margin: 20px auto; /* وضع الزر في المنتصف */
+    background-color: #086825;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* تأثيرات متعددة */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* تأثير ظل خفيف */
+    position: relative;
+    font-weight: 1000;
+    font-size: 1.2em;
+    text-align: center; /* توسيط النص */
+    font-family: 'Cairo', sans-serif; /* استخدام الخط الجديد */
+    overflow: hidden; /* منع تجاوزات العناصر الخارجية */
+}
+
+.back-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.back-button:hover::before {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+}
+
+.back-button:hover {
+    background-color: #034918;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* تعميق الظل عند التمرير */
+    color: gold; /* تغيير لون النص */
+    transform: translateY(-2px); /* رفع بسيط بدون تغيير كبير */
+}
+  /* نهاية زرار العوده */  
+
+footer a:hover i {
+    transform: scale(1.1); /* تكبير الأيقونة عند التمرير */
+}
+
+
+/* نصميم صفحه معلومات ععنا */
+
+main {
+    padding: 20px;
+    font-size: 1.1em;
+}
+
+h2, th {
+    color: #00490c; /* لون جذاب للرؤوس */
+    margin: 20px 0 20px;
+    padding: 10px;
+    font-size: 1.6em;
+    font-family:'Cairo', sans-serif; /* استخدام الخط الجديد */
+    text-align:  right;
+}
+
+h7 {
+    color: #00490c; /* لون جذاب للرؤوس */
+    margin: 20px 0 20px;
+    padding: 10px;
+    font-size: 1.6em;
+    font-family:'Cairo', sans-serif; /* استخدام الخط الجديد */
+    text-align:  center;
+}
+
+ul, td {
+    color: #000000; /* لون جذاب للرؤوس */
+    margin: 20px 0 20px;
+    padding: 20px;
+    font-size: 1em;
+    font-weight: 1000; 
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #c7c7c7;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+
+/* القائمة تظهر عند التفاعل */
+.menu.active {
+    left: 0;
+}
+
+
+/**
+  * Chase
+  *
+  * @author jh3y - jheytompkins.com
+*/
+.chase {
+    position: relative; }
+    .chase:after, .chase:before {
+      content: '';
+      height: 30px;
+      width: 30px;
+      display: block;
+      -webkit-animation: out .5s backwards, spin 1.25s .5s infinite ease;
+              animation: out .5s backwards, spin 1.25s .5s infinite ease;
+      border: 5px solid var(--primary);
+      border-radius: 100%;
+      -webkit-box-shadow: 0 -40px 0 -5px var(--primary);
+              box-shadow: 0 -40px 0 -5px var(--primary);
+      position: absolute; }
+    .chase:after {
+      -webkit-animation-delay: 0s, 1.25s;
+              animation-delay: 0s, 1.25s; }
+  
+  @-webkit-keyframes out {
+    from {
+      -webkit-box-shadow: 0 0 0 -5px var(--primary);
+              box-shadow: 0 0 0 -5px var(--primary); } }
+  
+  @keyframes out {
+    from {
+      -webkit-box-shadow: 0 0 0 -5px var(--primary);
+              box-shadow: 0 0 0 -5px var(--primary); } }
+  
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg); } }
+  
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg); } }
+              
+/* استجابة التصميم */
+@media (max-width: 768px) {
+    .product {
+        width: 100%; /* عرض المنتج بالكامل في الشاشات الصغيرة */
+        margin: 10px 0; /* مسافة بين المنتجات */
+    }
+
+    header {
+        padding: 15px 0; /* تعديل الحشوة في الهيدر */
+    }
+
+    .logo {
+        width: 60px; /* حجم أصغر للشعار في الشاشات الصغيرة */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 0; /* تعديل الحشوة في الهيدر للشاشات الصغيرة جداً */
+    }
+
+    .logo {
+        width: 40px; /* حجم أصغر للشعار في الشاشات الصغيرة جداً */
+    }
+
+    h1 {
+        font-size: 1.5em; /* تصغير حجم الخط في الهيدر */
+    }
+
+    .details-button {
+        padding: 8px 10px; /* تقليل حجم الأزرار في الشاشات الصغيرة */
+    }
+}
