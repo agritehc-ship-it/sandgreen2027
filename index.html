@@ -1,41 +1,25 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>شركة فيرا للاسمده والمخصبات</title>
-    <!-- استيراد الخط من Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>شركة فيرا للاسمدة والمخصبات | Vera Fertilizers</title>
+    
+    <!-- استيراد الخطوط والأيقونات -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">      
-    <style>
-        #clock {
-    font-family: 'Digital', sans-serif;
-    font-size: 3vw; /* استخدام وحدة vw لتناسب جميع الشاشات */
-    color: #ffffff;
-    margin-top: 10px;
-    padding: 10px; /* مسافة داخلية */
-    border-radius: 10px; /* زوايا دائرية */
-    background-color: #014b1d; /* لون الخلفية الداخلي للساعة */
-    width: 17%; /* تحديد عرض الصندوق */
-    height: 12%; /* تحديد ارتفاع الصندوق */
-    margin-top: 10px;
-    border-radius: 10px; /* زوايا دائرية */
-    display: flex; /* استخدام flexbox لمحاذاة النص */
-    justify-content: center; /* محاذاة النص أفقيًا في المنتصف */
-    align-items: center; /* محاذاة النص عموديًا في المنتصف */
-    text-align: center;
-}
-
-    </style>
 </head>
- 
-<body>
-    <header> 
-        <h1>شركـة Vira</h1>
 
-        <!-- قائمة الهامبرجر -->
-        <div class="hamburger-menu">
+<body>
+    <!-- الهيدر وشريط التنقل -->
+    <header class="main-header"> 
+        <div class="logo-container">
+            <h1>شركة <span>Vera</span></h1>
+        </div>
+
+        <!-- قائمة الهامبرجر للموبايل -->
+        <div class="hamburger-menu" aria-label="Toggle Menu">
             <span></span>
             <span></span>
             <span></span>
@@ -44,68 +28,82 @@
         <nav class="menu">
             <ul>
                 <li><a href="index detailes ferti.html">مغذيات</a></li>
-                <li><a href="index detailes salinity.html">معالجات الملوحة و الأجهاد</a></li>
+                <li><a href="index detailes salinity.html">معالجات الملوحة والإجهاد</a></li>
                 <li><a href="index detailes fungi.html">مبيدات فطرية</a></li>
                 <li><a href="index detailes grow stimulator.html">محفزات نمو</a></li>
                 <li><a href="index detailes row.html">خامات</a></li>
-
             </ul>
         </nav>
     </header>
 
+    <!-- المعرض / السلايدر الرئيسي -->
     <main>
         <section class="image-slider">
-            <img id="slider-image" src="logo.webp" alt="Image 1" class="slider-img">
+            <div class="slider-wrapper">
+                <img id="slider-image" src="logo.webp" alt="شركة فيرا للأسمدة والمخصبات" class="slider-img active">
+            </div>
         </section>
     </main>
 
-    <section>
-        <h2>من نحــن:</h2>
-        <p>نحن شركة أجري تك للأسمدة و المخصبات الزراعية نعمل في مجال تصنيع الأسمدة الزراعية عالية الجودة لدعم الانتاج الزراعي. هدفنا هو تعزيز إنتاجية المحاصيل وتحقيق الأمن الغذائي.</p>
-    </section>
+    <!-- قسم عن الشركة والرؤية والقيم -->
+    <div class="container info-wrapper">
+        <section class="card-info">
+            <div class="icon-box"><i class="fas fa-building-ngo"></i></div>
+            <h2>من نحــن</h2>
+            <p>نحن شركة <strong>فيرا (Vera)</strong> للأسمدة والمخصبات الزراعية، نعمل في مجال تصنيع الأسمدة الزراعية عالية الجودة لدعم الإنتاج الزراعي. هدفنا هو تعزيز إنتاجية المحاصيل وتحقيق الأمن الغذائي بأحدث التقنيات.</p>
+        </section>
 
-    <section>
-        <h2>رؤيتــنا:</h2>
-        <p>مصنع اجريتك لتصنيع الاسمدة الرائدة والذكية لمستقبل افضل لأراضينا وغذائنا.</p>
-    </section>
+        <section class="card-info">
+            <div class="icon-box"><i class="fas fa-eye"></i></div>
+            <h2>رؤيتــنا</h2>
+            <p>أن نصبح في مصنع <strong>فيرا (Vera)</strong> من رواد تصنيع الأسمدة الذكية والمستدامة، لمستقبل أفضل لأراضينا وغذائنا.</p>
+        </section>
 
-    <section>
-        <h2>قيمــنا:</h2>
-        <ul>
-            <li>الجودة: نقدم منتجات عالية الجودة تلبي احتياجات الزراعة.</li>
-            <li>الابتكار: نبحث دائمًا عن طرق جديدة لتحسين منتجاتنا.</li>
-            <li>الأرشاد الزراعي: نقوم بحملات أرشادية للمزارعين من خلال صفحتنا علي الفيس بوك.</li>
-        </ul>
-    </section>
+        <section class="card-info">
+            <div class="icon-box"><i class="fas fa-leaf"></i></div>
+            <h2>قيمــنا</h2>
+            <ul class="values-list">
+                <li><strong>الجودة:</strong> نقدم منتجات عالية الجودة تلبي احتياجات كافة أنواع الزراعات.</li>
+                <li><strong>الابتكار:</strong> نبحث دائمًا عن حلول وتقنيات جديدة لتحسين منتجاتنا ورفع كفاءتها.</li>
+                <li><strong>الإرشاد الزراعي:</strong> نقدّم الدعم والحملات الإرشادية للمزارعين عبر منصات التواصل الاجتماعي.</li>
+            </ul>
+        </section>
+    </div>
 
-    <footer style="text-align: center; padding: 10px; background-color: #ececec; margin-top: 10px;">
-        <p style="font-size: 1.4em; color: #007e34;">يشرفنا التعاون معكم (فريق أجريتك)</p>
-        <p style="font-size: 1em; color: #000000;">لطلب منتجاتنا او طلب استشارات زراعية دوس على اي أيقونة من الايقونات دي 👇</p>
-        <a href="https://www.facebook.com/Agritehc/" target="_blank" style="text-decoration: none; margin: 0 10px;">
-            <i class="fab fa-facebook fa-3x" style="color: #0051ff; transition: transform 0.2s;"></i>
-        </a>
-        <a href="https://wa.me/201000802240" target="_blank" style="text-decoration: none; margin: 0 10px;">
-            <i class="fab fa-whatsapp fa-3x" style="color: #00b141; transition: transform 0.2s;"></i>
-        </a>
-        <a href="mailto:agritehc@gmail.com" target="_blank" style="text-decoration: none; margin: 0 10px;">
-            <i class="fas fa-envelope fa-3x" style="color: #e70000; transition: transform 0.2s;"></i>
-        </a>
-        <a href="https://m.me/Agritehc" target="_blank" style="text-decoration: none; margin: 0 10px;">
-            <i class="fab fa-facebook-messenger fa-3x" style="color: #99039e; transition: transform 0.2s;"></i>
-        </a>
-        
-        <div id="clock-container" style="display: flex; justify-content: center; margin-top: 10px;">
-            <div id="clock" >
+    <!-- الفوتر / أسفل الصفحة -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p class="footer-welcome">يشرفنا التعاون معكم (فريق فيرا - Vera)</p>
+            <p class="footer-sub">لطلب منتجاتنا أو للحصول على استشارات زراعية، تواصل معنا عبر الأيقونات التالية 👇</p>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/Agritehc/" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://wa.me/201000802240" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:agritehc@gmail.com" target="_blank" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://m.me/Agritehc" target="_blank" aria-label="Messenger">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
             </div>
+
+            <!-- الساعة الرقمية -->
+            <div id="clock-container">
+                <div id="clock">00:00</div>
+            </div>
+
+            <p class="thank-you">تشرفنا بزيارتك لموقعنا 😍🌱</p>
+            <p class="copyright">&copy; 2026 Vera Company. All rights reserved.</p>
         </div>
-
-        <p >تشرفنا بزيارتك لموقعنا😍🌱</p>
-
-        <p>&copy; 2025 Agritehc Company. All rights reserved.</p>
     </footer>
 
+    <!-- السكريبتات -->
     <script>
-        // Script لإضافة وظيفة الساعة
+        // تحديث الساعة الرقمية
         function updateClock() {
             const clock = document.getElementById('clock');
             const now = new Date();
@@ -113,39 +111,32 @@
             const minutes = String(now.getMinutes()).padStart(2, '0');
             clock.textContent = `${hours}:${minutes}`;
         }
-
         setInterval(updateClock, 1000);
         updateClock();
-    </script>
 
-    <script>
-        // Script للقائمة
+        // التحكم في قائمة الهامبرجر
         const hamburger = document.querySelector('.hamburger-menu');
         const menu = document.querySelector('.menu');
-    
+        
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active'); 
             menu.classList.toggle('active');
         });
-    </script>
 
-    <script>
-        // Script للـ Slider
+        // معرض الصور المتغير (Slider)
         const images = ["AI Image.webp", "logo.webp", "tree.webp"];
         let currentIndex = 0;
         const sliderImage = document.getElementById("slider-image");
 
         function changeImage() {
             sliderImage.classList.remove("active");
-            
             setTimeout(() => {
-                currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+                currentIndex = (currentIndex + 1) % images.length;
                 sliderImage.src = images[currentIndex];
                 sliderImage.classList.add("active");
-            }, 500);
+            }, 400);
         }
-
-        setInterval(changeImage, 2000);
+        setInterval(changeImage, 3000);
     </script>
 </body>
 </html>
